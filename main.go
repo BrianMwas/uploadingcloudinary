@@ -14,7 +14,7 @@ import (
 func uploadFile(c *gin.Context) {
 
 	// Create our instance
-	cld, _ := cloudinary.NewFromURL("cloudinary://775819266531562:0vvHyxdwaqAHBjT44neW6h572HY@djmi67ke1")
+	cld, _ := cloudinary.NewFromURL("")
 
 	// Get the preferred name of the file if its not supplied
 	fileName := c.PostForm("name")
@@ -47,7 +47,7 @@ func uploadFile(c *gin.Context) {
 }
 
 func getAllUploadedAssets(c *gin.Context) {
-	cld, _ := cloudinary.NewFromURL("cloudinary://775819266531562:0vvHyxdwaqAHBjT44neW6h572HY@djmi67ke1")
+	cld, _ := cloudinary.NewFromURL("")
 	var urls []string
 
 	searchQ := search.Query{
@@ -76,7 +76,7 @@ func getAllUploadedAssets(c *gin.Context) {
 
 func getUploadedFile(c *gin.Context) {
 	// Create our instance
-	cld, _ := cloudinary.NewFromURL("cloudinary://775819266531562:0vvHyxdwaqAHBjT44neW6h572HY@djmi67ke1")
+	cld, _ := cloudinary.NewFromURL("")
 	fileName := c.Param("name")
 
 	// Access the filename using a desired filename
@@ -94,7 +94,7 @@ func getUploadedFile(c *gin.Context) {
 }
 
 func updateFile(c *gin.Context) {
-	cld, _ := cloudinary.NewFromURL("cloudinary://775819266531562:0vvHyxdwaqAHBjT44neW6h572HY@djmi67ke1")
+	cld, _ := cloudinary.NewFromURL("")
 	fileId := c.Param("publicId")
 	newFileName := c.PostForm("fileName")
 
@@ -116,7 +116,7 @@ func updateFile(c *gin.Context) {
 }
 
 func deleteAsset(c *gin.Context) {
-	cld, _ := cloudinary.NewFromURL("cloudinary://775819266531562:0vvHyxdwaqAHBjT44neW6h572HY@djmi67ke1")
+	cld, _ := cloudinary.NewFromURL("")
 	fileId := c.Param("assetId")
 	result, err := cld.Upload.Destroy(c, uploader.DestroyParams{PublicID: fileId})
 
